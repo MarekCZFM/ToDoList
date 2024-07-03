@@ -14,7 +14,7 @@ function dcNaUkol(event) {
     let ukol = event.target;
 
     ukol.classList.add('completed');
-})
+});
 
 let vymazSplneneUkoly = document.getElementById('clear-completed-button');
 vymazSplneneUkoly.onclick = function() {
