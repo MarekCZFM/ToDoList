@@ -17,8 +17,10 @@ function dcNaUkol(event) {
 });
 
 let vymazSplneneUkoly = document.getElementById('clear-completed-button');
-vymazSplneneUkoly.onclick = function() {
-    let splneneUkoly = document.querySelectorAll('#todo-list .completed');
+vymazSplneneUkoly.onclick = function() {vymaz('#todo-list .completed')};
+
+function vymaz(elementNaVymazani) {
+    let splneneUkoly = document.querySelectorAll(elementNaVymazani);
     splneneUkoly.forEach(element => {
         element.remove();
     });
