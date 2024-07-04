@@ -81,3 +81,13 @@ function ulozitUkolnicek() {
 };
 
 document.getElementById('save-button').onclick = () => {ulozitUkolnicek();};
+
+document.getElementById('todo-entry-box').addEventListener('keypress', (event) => 
+    {
+        if (event.key === 'Enter') 
+        { 
+            event.preventDefault(); 
+            document.getElementById('add-button').click();
+        }
+    }
+);
