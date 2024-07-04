@@ -27,6 +27,7 @@ pridavaciTlacitko.onclick = function () {
     pridejUkol(poleSNazvemUkolu.value, false);
 
     poleSNazvemUkolu.value = "";
+    ulozitUkolnicek();
 };
 
 function pridejUkol(nazev, splneno) {
@@ -38,6 +39,7 @@ function pridejUkol(nazev, splneno) {
     {
         novyUkol.classList.add('completed');
     }
+    ulozitUkolnicek();
 };
 
 let listUkolu = document.getElementById('todo-list');
@@ -46,6 +48,7 @@ function dcNaUkol(event) {
     let ukol = event.target;
 
     ukol.classList.add('completed');
+    ulozitUkolnicek();
 });
 
 let vymazSplneneUkoly = document.getElementById('clear-completed-button');
@@ -55,6 +58,7 @@ function vymazZ(elementNaVymazani) {
     splneneUkoly.forEach(element => {
         element.remove();
     });
+    ulozitUkolnicek();
 };
 
 vymazSplneneUkoly.onclick = function() {vymazZ('#todo-list .completed')};
@@ -77,10 +81,9 @@ function ulozitUkolnicek() {
     }
 
     localStorage.setItem('ukolnicek', JSON.stringify(ukolnicekKUlozeni));
-    alert('Uspesne ulozeno!');
 };
 
-document.getElementById('save-button').onclick = () => {ulozitUkolnicek();};
+document.getElementById('save-button').onclick = () => {ulozitUkolnicek(); alert('Uspesne ulozeno!');};
 
 document.getElementById('todo-entry-box').addEventListener('keypress', (event) => 
     {
